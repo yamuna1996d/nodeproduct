@@ -12,7 +12,7 @@ quantity:Number,
 pcode:Number
 });
 const pmodel = mongoose.model('products',productSchema);
-mongoose.connect("");
+mongoose.connect("mongodb+srv://dbuser:ava1996@cluster0-pvjxp.mongodb.net/test?retryWrites=true&w=majority");
 app.get('/',(req,res)=>{
     res.send('hai user');
 });
