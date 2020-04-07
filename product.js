@@ -52,7 +52,7 @@ app.post('/search',async(req,res)=>{
         res.status(500).send(error);
     }
 });
-app.post('/search by pcode',async(req,res)=>{
+app.post('/searchbypcode',async(req,res)=>{
     try {
         var searchkey = req.body.mydata;
         pmodel.find({"pcode":searchkey},(error,datas)=>{
