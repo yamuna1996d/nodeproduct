@@ -28,7 +28,7 @@ app.post('/product',async(req,res)=>{
         
     }
 });
-app.post('/view',async(req,res)=>{
+app.get('/view',async(req,res)=>{
     try {
         var ress=await pmodel.find();
         res.send(ress);
