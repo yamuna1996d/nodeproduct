@@ -28,6 +28,47 @@ app.post('/product',async(req,res)=>{
         
     }
 });
+app.post('/view',async(req,res)=>{
+    try {
+        var ress=await pmodel.find();
+        res.send(ress);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+});
+app.post('/search',async(req,res)=>{
+    try {
+        pmodel.find(req.body,(error,datas)=>{
+            if(error){
+                throw error;
+            }
+                else{
+                    res.send(datas);
+                }
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+});
+app.post('/search by pcode',async(req,res)=>{
+    try {
+        var searchkey = req.body.mydata;
+        pmodel.find({"pcode":searchkey},(error,datas)=>{
+            if(error){
+                throw error;
+            }
+                else{
+                    res.send(datas);
+                }
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+        
+    }
+});
 app.listen(process.env.PORT || 3000,()=>{
     console.log("Server Started");
 });
