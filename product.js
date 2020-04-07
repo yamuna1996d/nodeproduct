@@ -54,7 +54,7 @@ app.post('/search',async(req,res)=>{
 });
 app.post('/searchbypcode',async(req,res)=>{
     try {
-        var searchkey = req.body.mydata;
+        var searchkey = req.body.mykey;
         pmodel.find({"pcode":searchkey},(error,datas)=>{
             if(error){
                 throw error;
